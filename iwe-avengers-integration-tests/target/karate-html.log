@@ -1,27 +1,25 @@
-22:01:18.714 karate.env system property was: null 
-22:01:19.027 request:
+19:56:25.595 karate.env system property was: null 
+19:56:25.895 request:
 1 > GET https://w7fqa71cuk.execute-api.us-east-1.amazonaws.com/dev/avengers/aaaa-bbbb-cccc-dddd
 1 > Accept-Encoding: gzip,deflate
 1 > Connection: Keep-Alive
 1 > Host: w7fqa71cuk.execute-api.us-east-1.amazonaws.com
 1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_112)
 
-22:01:19.922 response time in milliseconds: 894
+19:56:30.259 response time in milliseconds: 4364
 1 < 200
 1 < Connection: keep-alive
-1 < Content-Length: 92
+1 < Content-Length: 0
 1 < Content-Type: application/json
-1 < Date: Fri, 21 Sep 2018 01:01:18 GMT
-1 < x-amz-apigw-id: Ni9i0FTnIAMFcbQ=
-1 < x-amzn-RequestId: d91fb7a0-bd39-11e8-b078-393cb66dc78c
-{
-  "id" : "aaaa-bbbb-cccc-dddd",
-  "name" : "Iron Man",
-  "secretIdentity" : "Tony Stark"
-}
+1 < Date: Mon, 24 Sep 2018 22:56:29 GMT
+1 < X-Amzn-Trace-Id: Root=1-5ba96b9a-66a86d2a5fbebdf7216fac57;Sampled=0
+1 < x-amz-apigw-id: Nv3AHGxkIAMFdHQ=
+1 < x-amzn-RequestId: 10e1fa5b-c04d-11e8-be85-5d91de7d975f
 
-22:01:19.964 karate.env system property was: null 
-22:01:19.970 request:
+
+19:56:30.290 assertion failed: path: $, actual: '', expected: '{"id":"#string","name":"#string","secretIdentity":"#string"}', reason: not equal
+19:56:30.300 karate.env system property was: null 
+19:56:30.305 request:
 1 > POST https://w7fqa71cuk.execute-api.us-east-1.amazonaws.com/dev/avengers
 1 > Accept-Encoding: gzip,deflate
 1 > Connection: Keep-Alive
@@ -31,22 +29,22 @@
 1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_112)
 {"name":"Captain America","secretIdentity":"Steve Rogers"}
 
-22:01:20.484 response time in milliseconds: 514
+19:56:30.750 response time in milliseconds: 444
 1 < 201
 1 < Connection: keep-alive
 1 < Content-Length: 96
 1 < Content-Type: application/json
-1 < Date: Fri, 21 Sep 2018 01:01:19 GMT
-1 < x-amz-apigw-id: Ni9i6GRWoAMFgQw=
-1 < x-amzn-RequestId: d97a336e-bd39-11e8-b8a8-470dd7367846
+1 < Date: Mon, 24 Sep 2018 22:56:30 GMT
+1 < x-amz-apigw-id: Nv3AvEixIAMF7Jg=
+1 < x-amzn-RequestId: 134872f9-c04d-11e8-a695-3b648fa453e6
 {
   "id" : "pppp-qqqq-wwww",
   "name" : "Capitao America",
   "secretIdentity" : "Steve Rogers"
 }
 
-22:01:20.495 karate.env system property was: null 
-22:01:20.498 request:
+19:56:30.761 karate.env system property was: null 
+19:56:30.763 request:
 1 > POST https://w7fqa71cuk.execute-api.us-east-1.amazonaws.com/dev/avengers
 1 > Accept-Encoding: gzip,deflate
 1 > Connection: Keep-Alive
@@ -56,35 +54,35 @@
 1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_112)
 {"name":"Captain America"}
 
-22:01:21.004 response time in milliseconds: 505
+19:56:31.301 response time in milliseconds: 537
 1 < 400
 1 < Connection: keep-alive
 1 < Content-Length: 35
 1 < Content-Type: application/json
-1 < Date: Fri, 21 Sep 2018 01:01:19 GMT
-1 < x-amz-apigw-id: Ni9i_H_5oAMFbdA=
-1 < x-amzn-RequestId: d9c8c8a3-bd39-11e8-b6f4-6ddbd2670bc9
+1 < Date: Mon, 24 Sep 2018 22:56:30 GMT
+1 < x-amz-apigw-id: Nv3A0GZbIAMF3sw=
+1 < x-amzn-RequestId: 139644b5-c04d-11e8-9bf9-35375aa5e420
 {"message": "Invalid request body"}
 
-22:01:21.015 karate.env system property was: null 
-22:01:21.018 request:
+19:56:31.315 karate.env system property was: null 
+19:56:31.317 request:
 1 > DELETE https://w7fqa71cuk.execute-api.us-east-1.amazonaws.com/dev/avengers/aaaa-bbbb-cccc-dddd
 1 > Accept-Encoding: gzip,deflate
 1 > Connection: Keep-Alive
 1 > Host: w7fqa71cuk.execute-api.us-east-1.amazonaws.com
 1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_112)
 
-22:01:21.569 response time in milliseconds: 551
+19:56:31.748 response time in milliseconds: 431
 1 < 204
 1 < Connection: keep-alive
 1 < Content-Length: 0
 1 < Content-Type: application/json
-1 < Date: Fri, 21 Sep 2018 01:01:20 GMT
-1 < x-amz-apigw-id: Ni9jEGDxoAMFwwQ=
-1 < x-amzn-RequestId: da1dc700-bd39-11e8-937d-93344fd9693d
+1 < Date: Mon, 24 Sep 2018 22:56:31 GMT
+1 < x-amz-apigw-id: Nv3A5EggoAMF-iQ=
+1 < x-amzn-RequestId: 13e10a22-c04d-11e8-84c2-15a8cad10d1c
 
-22:01:21.584 karate.env system property was: null 
-22:01:21.588 request:
+19:56:31.759 karate.env system property was: null 
+19:56:31.764 request:
 1 > PUT https://w7fqa71cuk.execute-api.us-east-1.amazonaws.com/dev/avengers/pppp-aaaa-rrrr-eeee
 1 > Accept-Encoding: gzip,deflate
 1 > Connection: Keep-Alive
@@ -94,22 +92,22 @@
 1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_112)
 {"name":"Black Widow","secretIdentity":"Natasha Romanov"}
 
-22:01:22.082 response time in milliseconds: 493
+19:56:32.208 response time in milliseconds: 444
 1 < 200
 1 < Connection: keep-alive
 1 < Content-Length: 100
 1 < Content-Type: application/json
-1 < Date: Fri, 21 Sep 2018 01:01:21 GMT
-1 < x-amz-apigw-id: Ni9jKF4NIAMFyOg=
-1 < x-amzn-RequestId: da6ea629-bd39-11e8-9a43-c5f54fba0721
+1 < Date: Mon, 24 Sep 2018 22:56:31 GMT
+1 < x-amz-apigw-id: Nv3A9EbNoAMFRcA=
+1 < x-amzn-RequestId: 1426c501-c04d-11e8-b761-47d06a035cf6
 {
   "id" : "pppp-aaaa-rrrr-eeee",
   "name" : "Black Widow",
   "secretIdentity" : "Natasha Romanov"
 }
 
-22:01:22.095 karate.env system property was: null 
-22:01:22.097 request:
+19:56:32.220 karate.env system property was: null 
+19:56:32.222 request:
 1 > PUT https://w7fqa71cuk.execute-api.us-east-1.amazonaws.com/dev/avengers/pppp-aaaa-rrrr-eeee
 1 > Accept-Encoding: gzip,deflate
 1 > Connection: Keep-Alive
@@ -119,18 +117,18 @@
 1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_112)
 {"name":"Black Widow"}
 
-22:01:22.615 response time in milliseconds: 518
+19:56:32.723 response time in milliseconds: 500
 1 < 400
 1 < Connection: keep-alive
 1 < Content-Length: 35
 1 < Content-Type: application/json
-1 < Date: Fri, 21 Sep 2018 01:01:21 GMT
-1 < x-amz-apigw-id: Ni9jPERToAMFddg=
-1 < x-amzn-RequestId: dabdfeab-bd39-11e8-b2ba-ed908a62e4b3
+1 < Date: Mon, 24 Sep 2018 22:56:32 GMT
+1 < x-amz-apigw-id: Nv3BCEpKIAMF3rA=
+1 < x-amzn-RequestId: 1471b11c-c04d-11e8-957e-cb50f3a56c36
 {"message": "Invalid request body"}
 
 
-20:38:33.611 assertion failed: path: $.id, actual: '(not present)', expected: '#string', reason: actual value does not contain expected
+in expected
 url: https://w7fqa71cuk.execute-api.us-east-1.amazonaws.com/dev/avengers/pppp-aaaa-rrrr-eeee, response: {"id":"pppp-aaaa-rrrr-eeee","name":"Black Widow","secretIdentity":"Natasha Romanov"}
 6l-4.3 24.7c-.1.3-.3.6-.6.6H25c-.3 0-.6-.2-.5-.6l6.6-37.3c.1-.3.3-.6.6-.6h6.4c.5 0 .7.2.8.6l8.8 24.7h.3l5.5-30.4C47.9 3.7 40.6.9 32.7.9 14.7.9.2 15.5.2 33.4c0 8.8 3.5 16.7 9.1 22.5l7.3-41.7c.1-.3.3-.6.6-.6H24c.3 0 .5.2.5.6l-8.3 47.2c4.8 2.8 10.4 4.5 16.4 4.5 17.9 0 32.5-14.5 32.5-32.5 0-6.8-2.1-13.1-5.6-18.3z"></path></svg>
                             <svg class="mobile-signin" xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16"><g fill-rule="evenodd"><path d="M0 14h24v2H0zM0 8h24v2H0zM0 2h24v2H0z"></path></g></svg>
