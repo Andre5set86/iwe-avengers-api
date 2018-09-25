@@ -27,5 +27,18 @@ public class AvengerDAO {
 		// TODO Auto-generated method stub
 		return mapper.replace(avenger.getId(), avenger);
 	}
+	
+	public Avenger create(Avenger avenger) {
+
+		String id = "IssoFoiGerado";
+		avenger.setId(id);
+		mapper.put(id, avenger);
+		return avenger;
+
+	}
+
+	public void remove(Avenger avenger) {
+		mapper.remove(avenger.getId());
+	}
 
 }

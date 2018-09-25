@@ -13,12 +13,22 @@ public class HandlerResponse {
 	private final String body;
 	private final Map<String, String> headers;
 	private final boolean isBase64Encoded;
-
+	private String errorMessage;
+	
 	public HandlerResponse(int statusCode, String body, Map<String, String> headers, boolean isBase64Encoded) {
 		this.statusCode = statusCode;
 		this.body = body;
 		this.headers = headers;
-		this.isBase64Encoded = isBase64Encoded;
+		this.isBase64Encoded = isBase64Encoded;		
+	}
+
+		
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+	
+	public void setErrorMessage(String message) {
+		this.errorMessage = message;
 	}
 
 	public int getStatusCode() {
