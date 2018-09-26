@@ -1,44 +1,24 @@
 package com.iwe.avengers.dao;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.iwe.avenger.dynamodb.entity.Avenger;
+import com.iwe.avenger.repository.DynamoDBManager;
 
 public class AvengerDAO {
-
-	private Map<String, Avenger> mapper; 
 	
-	
-	public AvengerDAO() {
-		mapper = new HashMap<String, Avenger>();
-		mapper.put("aaaa-bbbb-cccc-dddd", new Avenger("aaaa-bbbb-cccc-dddd", "Capitain America", "Steve Rogers"));
-		mapper.put("aaaa-bbbb-cccc-eeee", new Avenger("aaaa-bbbb-cccc-eeee", "Black Widow", "Natasha Romanov"));
-		mapper.put("aaaa-bbbb-cccc-ffff", new Avenger("aaaa-bbbb-cccc-ffff", "Iron Man", "Tony Stark"));
-		mapper.put("aaaa-bbbb-cccc-gggg", new Avenger("aaaa-bbbb-cccc-gggg", "Hulk", "Bruce Banner"));
-		
-	}
+	private static final DynamoDBMapper mapper = DynamoDBManager.mapper();
 	
 	public Avenger search(String id) {
-		return mapper.get(id);
+		return mapper.load(Avenger.class, id);
 	}
 
-	public Avenger update(Avenger avenger) {
-		// TODO Auto-generated method stub
-		return mapper.replace(avenger.getId(), avenger);
-	}
-	
-	public Avenger create(Avenger avenger) {
-
-		String id = "IssoFoiGerado";
-		avenger.setId(id);
-		mapper.put(id, avenger);
+	public Avenger save(Avenger avenger) {
+		mapper.save(avenger);
 		return avenger;
-
 	}
 
 	public void remove(Avenger avenger) {
-		mapper.remove(avenger.getId());
+		mapper.delete(avenger);
 	}
 
 }
