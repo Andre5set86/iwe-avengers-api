@@ -35,24 +35,52 @@ Then status 400
 
 Scenario: Delete a Avenger
 
-Given path 'avengers', '00a00ca2-e96b-479c-8425-758645483305'
+Given path 'avengers'
+And request {name: 'Iron Fist', secretIdentity:'Dany'}
+When method post
+Then status 201
+And match response == {id:'#string', name: 'Iron Fist', secretIdentity:'Dany'}
+
+* def savedAvenger = response
+
+Given path 'avengers', savedAvenger.id
 When method delete
 Then status 204
+
+Given path 'avengers', savedAvenger.id
+When method get
+Then status 404
 
 
 Scenario: Delete a Avenger Not Found
 
-Given path 'avengers', 'aaaa-bbbb-cccc-eeee'
+Given path 'avengers', 'avengerNotFound'
 When method delete
 Then status 404
 
 Scenario: Updates Avenger
+Given path 'avengers'
+And request {name: 'Iron Fist', secretIdentity:'Dany'}
+When method post
+Then status 201
+And match response == {id:'#string', name: 'Iron Fist', secretIdentity:'Dany'}
 
-Given path 'avengers', 'aaaa-bbbb-cccc-dddd'
+* def savedAvenger = response
+
+Given path 'avengers', savedAvenger.id
 And request {  name : 'Black Widow',  secretIdentity : "Natasha Romanov"}
 When method put
 Then status 200
-And match response == {id:'#string', name: '#string', secretIdentity:'#string'}
+And match $.id == savedAvenger.id
+And match $.name == 'Black Widow'
+And match $.secretIdentity == 'Natasha Romanov'
+
+* def alteredAvenger = $
+
+Given path 'avengers', alteredAvenger.id
+When method get
+Then status 200
+And match $ == alteredAvenger
 
 Scenario: Updates Avenger - NOT FOUND
 
