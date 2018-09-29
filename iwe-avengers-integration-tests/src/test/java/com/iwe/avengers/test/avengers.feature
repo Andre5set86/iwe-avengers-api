@@ -34,6 +34,7 @@ Scenario: Create new Avenger
 
 Given path 'avengers'
 And request {name: 'Iron Fist', secretIdentity:'Dany'}
+And header Authorization = 'Bearer ' + token
 When method post
 Then status 201
 And match response == {id:'#string', name: 'Iron Fist', secretIdentity:'Dany'}
@@ -50,6 +51,7 @@ Scenario: Creates a new Avenger whithout the required data
 
 Given path 'avengers'
 And request {name: 'Captain America' }
+And header Authorization = 'Bearer ' + token
 When method post
 Then status 400
 
@@ -58,6 +60,7 @@ Scenario: Delete a Avenger
 
 Given path 'avengers'
 And request {name: 'Iron Fist', secretIdentity:'Dany'}
+And header Authorization = 'Bearer ' + token
 When method post
 Then status 201
 And match response == {id:'#string', name: 'Iron Fist', secretIdentity:'Dany'}
@@ -65,6 +68,7 @@ And match response == {id:'#string', name: 'Iron Fist', secretIdentity:'Dany'}
 * def savedAvenger = response
 
 Given path 'avengers', savedAvenger.id
+And header Authorization = 'Bearer ' + token
 When method delete
 Then status 204
 
@@ -77,12 +81,14 @@ Then status 404
 Scenario: Delete a Avenger Not Found
 
 Given path 'avengers', 'avengerNotFound'
+And header Authorization = 'Bearer ' + token
 When method delete
 Then status 404
 
 Scenario: Updates Avenger
 Given path 'avengers'
 And request {name: 'Iron Fist', secretIdentity:'Dany'}
+And header Authorization = 'Bearer ' + token
 When method post
 Then status 201
 And match response == {id:'#string', name: 'Iron Fist', secretIdentity:'Dany'}
@@ -91,6 +97,7 @@ And match response == {id:'#string', name: 'Iron Fist', secretIdentity:'Dany'}
 
 Given path 'avengers', savedAvenger.id
 And request {  name : 'Black Widow',  secretIdentity : "Natasha Romanov"}
+And header Authorization = 'Bearer ' + token
 When method put
 Then status 200
 And match $.id == savedAvenger.id
@@ -109,6 +116,7 @@ Scenario: Updates Avenger - NOT FOUND
 
 Given path 'avengers', 'Avg-not-found'
 And request { id:'Avg-not-found', name : 'Black Widow',  secretIdentity : "Natasha Romanov"}
+And header Authorization = 'Bearer ' + token
 When method put
 Then status 404
 
@@ -117,8 +125,17 @@ Scenario: Update Avenger Validation
 
 Given path 'avengers', 'pppp-aaaa-rrrr-eeee'
 And request {name : "Black Widow"}
+And header Authorization = 'Bearer ' + token
 When method put
 Then status 400
+
+Scenario: Delete All Avengers
+
+Given path 'avengers', 'deleteAllAvengers'
+And header Authorization = 'Bearer ' + token
+When method get
+Then status 200
+And match $ == '"All Clear =)"'
 
 #Scenario: Create Avenger
 #
