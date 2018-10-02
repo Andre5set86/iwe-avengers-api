@@ -129,13 +129,22 @@ And header Authorization = 'Bearer ' + token
 When method put
 Then status 400
 
-Scenario: Delete All Avengers
+Scenario: Search Avengers by Name
 
-Given path 'avengers', 'deleteAllAvengers'
+Given path 'avengers'
+And param name = "Black"
 And header Authorization = 'Bearer ' + token
 When method get
 Then status 200
-And match $ == '"All Clear =)"'
+Then match $[*].name contains 'Widow'
+
+
+Scenario: Delete All Avengers
+
+Given path 'avengers'
+And header Authorization = 'Bearer ' + token
+When method delete
+Then status 204
 
 #Scenario: Create Avenger
 #
